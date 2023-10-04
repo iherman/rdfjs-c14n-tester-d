@@ -6,11 +6,15 @@
  * @packageDocumentation
  */
 
+// import * as n3    from 'n3';
+// import * as rdf   from 'rdf-js';
+// import { nquads } from '@tpluscode/rdf-string';
+// import { Graph }  from './types';
+
 import * as n3    from 'npm:n3';
 import * as rdf   from 'npm:rdf-js';
 import { nquads } from 'npm:@tpluscode/rdf-string';
 import { Graph }  from './types.ts';
-
 
 /**
  * Convert the graph into ordered NQuads, more exactly into an array of individual NQuad statement

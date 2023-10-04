@@ -7,9 +7,7 @@
  */
 
 import { Graph, Constants, TestEntry, TestResult, TestTypes, Json, IDMapping } from './types.ts';
-import { RDFC10, BNodeId }                                                  from 'npm:rdfjs-c14n@^2.0.5';
-// // @deno-types="../../../rdfjs-c14n/dist/index.d.ts"
-// import { RDFC10, BNodeId }                                                     from '../../../rdfjs-c14n/dist/index.d.ts';
+import { RDFC10, BNodeId }                                                     from 'npm:rdfjs-c14n@^2.0.5';
 import * as rdfn3                                                              from './rdfn3.ts';
 import * as rdf                                                                from 'npm:rdf-js';
 

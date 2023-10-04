@@ -1,6 +1,10 @@
+// import { TestResult, Constants, Json } from './types';
+// import { fetchJson }                   from './utils';
+// import * as emu                        from '../emulate/deno';
+
 import { TestResult, Constants, Json } from './types.ts';
 import { fetchJson }                   from './utils.ts';
-// import { promises as fs }              from 'node:fs';
+import * as emu                        from '../emulate/deno.ts';
 
 const today = new Date();
 
@@ -23,7 +27,8 @@ const createEarlEntry = (result: TestResult): string => {
 const getPreamble = async () : Promise<string> => {
     const project_info: Json = await fetchJson(Constants.PACKAGE_FILE);
     // const preamble = await fs.readFile(Constants.EARL_PREAMBLE,"utf-8");
-    const preamble: string = await Deno.readTextFile(Constants.EARL_PREAMBLE);
+    // const preamble: string = await Deno.readTextFile(Constants.EARL_PREAMBLE);
+    const preamble: string = await emu.readTextFile(Constants.EARL_PREAMBLE);
     return preamble
                 .replace("$$ISODATE$$", today.toISOString())
                 .replace("$$PR_NAME$$", project_info["name"] as string)
@@ -56,5 +61,5 @@ export async function createEarlReport(results: TestResult[]): Promise<void> {
 
     // Store the report
     // return fs.writeFile(Constants.EARL_REPORT, report);
-    return Deno.writeTextFile(Constants.EARL_REPORT, report);
+    return emu.writeTextFile(Constants.EARL_REPORT, report);
 }

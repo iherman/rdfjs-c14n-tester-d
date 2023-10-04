@@ -3,12 +3,22 @@
  * 
  * @packageDocumentation
  */
+// import * as utils                           from './lib/utils';
+// import { TestEntry, TestResult, Constants } from './lib/types';
+// import { createEarlReport }                 from './lib/earl';
+// import { RDFC10, LogLevels, Logger }        from 'rdfjs-c14n';
+// import { Command }                          from 'commander';
+// import { batchPromises }                    from './lib/batch';
+// import * as emu                             from './emulate/deno';
+
 import * as utils                           from './lib/utils.ts';
 import { TestEntry, TestResult, Constants } from './lib/types.ts';
 import { createEarlReport }                 from './lib/earl.ts';
 import { RDFC10, LogLevels, Logger }        from 'npm:rdfjs-c14n@^2.0.5';
 import { Command }                          from 'npm:commander';
 import { batchPromises }                    from './lib/batch.ts';
+import * as emu                             from './emulate/deno.ts';
+
 
 /**
  * Main entry point.
@@ -55,7 +65,7 @@ async function main(): Promise<void> {
 
     // Cheating... the command package is aimed at node and relies on the structure of
     // process.argv. This below recreates the structure to fool the commander tool...
-    const processArgv: string[] = [Deno.execPath(), Deno.execPath(), ...Deno.args];
+    // const processArgv: string[] = [Deno.execPath(), Deno.execPath(), ...Deno.args];
 
     // This is just standard UI handling...
     const program = new Command();
@@ -68,7 +78,7 @@ async function main(): Promise<void> {
         .option('-n --number [number]', 'Test number')
         .option('-d --debug', 'Display all log')
         .option('-t --trace', 'Display trace and debug log')
-        .parse(processArgv);
+        .parse(emu.args());
 
     const options = program.opts();
     const debug = options.debug ? true : false;
