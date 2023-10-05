@@ -3,15 +3,11 @@
  * 
  * @packageDocumentation
  */
-// import * as utils                           from './utils';
-// import { TestEntry, TestResult, Constants } from './types';
-// import { RDFC10 }                           from 'rdfjs-c14n';
-// import * as _                               from 'underscore';
+import * as utils                           from './utils';
+import { TestEntry, TestResult, Constants } from './types';
 
-import * as utils                           from './utils.ts';
-import { TestEntry, TestResult, Constants } from './types.ts';
-import { RDFC10 }                           from 'npm:rdfjs-c14n@^2.0.5';
-import * as _                               from 'npm:underscore';
+import { RDFC10 }                           from 'rdfjs-c14n';
+import * as _                               from 'underscore';
 
 
 /**

@@ -3,21 +3,14 @@
  * 
  * @packageDocumentation
  */
-// import * as utils                           from './lib/utils';
-// import { TestEntry, TestResult, Constants } from './lib/types';
-// import { createEarlReport }                 from './lib/earl';
-// import { RDFC10, LogLevels, Logger }        from 'rdfjs-c14n';
-// import { Command }                          from 'commander';
-// import { batchPromises }                    from './lib/batch';
-// import * as emu                             from './sys/deno';
+import * as utils                           from './lib/utils';
+import { TestEntry, TestResult, Constants } from './lib/types';
+import { createEarlReport }                 from './lib/earl';
+import { batchPromises }                    from './lib/batch';
+import * as sys                             from './lib/sys';
 
-import * as utils                           from './lib/utils.ts';
-import { TestEntry, TestResult, Constants } from './lib/types.ts';
-import { createEarlReport }                 from './lib/earl.ts';
-import { RDFC10, LogLevels, Logger }        from 'npm:rdfjs-c14n@^2.0.5';
-import { Command }                          from 'npm:commander';
-import { batchPromises }                    from './lib/batch.ts';
-import * as emu                             from './sys/deno.ts';
+import { RDFC10, LogLevels, Logger }        from 'rdfjs-c14n';
+import { Command }                          from 'commander';
 
 
 /**
@@ -78,7 +71,7 @@ async function main(): Promise<void> {
         .option('-n --number [number]', 'Test number')
         .option('-d --debug', 'Display all log')
         .option('-t --trace', 'Display trace and debug log')
-        .parse(emu.args());
+        .parse(sys.args());
 
     const options = program.opts();
     const debug = options.debug ? true : false;

@@ -5,12 +5,9 @@
  * @packageDocumentation
  */
 
-// import * as rdf    from 'rdf-js';
-// import { BNodeId } from 'rdfjs-c14n';
 
-import * as rdf    from 'npm:rdf-js';
-import { BNodeId } from 'npm:rdfjs-c14n@^2.0.5';
-
+import * as rdf    from 'rdf-js';
+import { BNodeId } from 'rdfjs-c14n';
 
 export type Json = Record<string, unknown> ;
 

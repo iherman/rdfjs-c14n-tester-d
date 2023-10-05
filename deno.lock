@@ -6,6 +6,7 @@
       "npm:commander": "npm:commander@11.0.0",
       "npm:n3": "npm:n3@1.17.1",
       "npm:rdf-js": "npm:rdf-js@4.0.2",
+      "npm:rdfjs-c14n@^2.0.1": "npm:rdfjs-c14n@2.0.5",
       "npm:rdfjs-c14n@^2.0.5": "npm:rdfjs-c14n@2.0.5",
       "npm:underscore": "npm:underscore@1.13.6"
     },
