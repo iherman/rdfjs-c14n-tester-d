@@ -9,7 +9,7 @@
 // import { RDFC10, LogLevels, Logger }        from 'rdfjs-c14n';
 // import { Command }                          from 'commander';
 // import { batchPromises }                    from './lib/batch';
-// import * as emu                             from './emulate/deno';
+// import * as emu                             from './sys/deno';
 
 import * as utils                           from './lib/utils.ts';
 import { TestEntry, TestResult, Constants } from './lib/types.ts';
@@ -17,7 +17,7 @@ import { createEarlReport }                 from './lib/earl.ts';
 import { RDFC10, LogLevels, Logger }        from 'npm:rdfjs-c14n@^2.0.5';
 import { Command }                          from 'npm:commander';
 import { batchPromises }                    from './lib/batch.ts';
-import * as emu                             from './emulate/deno.ts';
+import * as emu                             from './sys/deno.ts';
 
 
 /**

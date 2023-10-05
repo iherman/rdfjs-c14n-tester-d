@@ -1,10 +1,10 @@
 // import { TestResult, Constants, Json } from './types';
 // import { fetchJson }                   from './utils';
-// import * as emu                        from '../emulate/deno';
+// import * as emu                        from '../sys/deno';
 
 import { TestResult, Constants, Json } from './types.ts';
 import { fetchJson }                   from './utils.ts';
-import * as emu                        from '../emulate/deno.ts';
+import * as emu                        from '../sys/deno.ts';
 
 const today = new Date();
 
