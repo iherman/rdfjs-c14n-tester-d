@@ -21,12 +21,10 @@
     "./lib/earl":            "./lib/earl.ts",
     "./lib/batch":           "./lib/batch.ts",
     "./lib/rdfn3":           "./lib/rdfn3.ts",
-    "./lib/sys":             "./lib/sys.ts",
     "./utils":               "./utils.ts",
     "./types":               "./types.ts",
     "./earl":                "./earl.ts",
     "./batch":               "./batch.ts",
-    "./rdfn3":               "./rdfn3.ts",
-    "./sys":                 "./sys.ts"
+    "./rdfn3":               "./rdfn3.ts"
   }
 }

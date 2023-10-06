@@ -7,10 +7,10 @@ import * as utils                           from './lib/utils';
 import { TestEntry, TestResult, Constants } from './lib/types';
 import { createEarlReport }                 from './lib/earl';
 import { batchPromises }                    from './lib/batch';
-import * as sys                             from './lib/sys';
 
 import { RDFC10, LogLevels, Logger }        from 'rdfjs-c14n';
 import { Command }                          from 'commander';
+import * as process                         from 'node:process';
 
 
 /**
@@ -71,7 +71,7 @@ async function main(): Promise<void> {
         .option('-n --number [number]', 'Test number')
         .option('-d --debug', 'Display all log')
         .option('-t --trace', 'Display trace and debug log')
-        .parse(sys.args());
+        .parse(process.argv);
 
     const options = program.opts();
     const debug = options.debug ? true : false;
