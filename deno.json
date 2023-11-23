@@ -15,7 +15,6 @@
     "rdf-js":                "npm:rdf-js",
     "underscore":            "npm:underscore",
     "@tpluscode/rdf-string": "npm:@tpluscode/rdf-string",
-    "rdfjs-c14n":            "npm:rdfjs-c14n@^2.0.1",
     "./lib/utils":           "./lib/utils.ts",
     "./lib/types":           "./lib/types.ts",
     "./lib/earl":            "./lib/earl.ts",
@@ -25,6 +24,7 @@
     "./types":               "./types.ts",
     "./earl":                "./earl.ts",
     "./batch":               "./batch.ts",
-    "./rdfn3":               "./rdfn3.ts"
+    "./rdfn3":               "./rdfn3.ts",
+    "rdfjs-c14n":            "npm:rdfjs-c14n@^3.0.0"
   }
 }
