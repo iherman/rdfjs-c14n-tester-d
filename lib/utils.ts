@@ -14,7 +14,8 @@ import * as rdf                                                                f
 
 
 /**
- * As its name says: fetch a JSON file and convert it into a real JSON structure
+ * As its name says: fetch a JSON file and convert it into a real Typescript structure.
+ * 
  * @param fname 
  * @returns 
  */
@@ -25,7 +26,8 @@ export async function fetchJson(fname: string): Promise<Json> {
 
 
 /**
- * As its name says: fetch a text file 
+ * As its name says: fetch a text file.
+ * 
  * @param fname 
  * @returns 
  */
@@ -36,6 +38,7 @@ async function fetchText(fname: string): Promise<string> {
 
 
 /**
+ * Function name tells it all...
  * 
  * @param produced 
  * @returns 

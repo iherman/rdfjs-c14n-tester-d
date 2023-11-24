@@ -7,7 +7,8 @@
   "license": "W3C-20150513",
   "tasks": {
     "run": "deno run --allow-net --allow-read --allow-write main.ts",
-    "compile": "deno compile -o c14n-tester --allow-net --allow-read --allow-write main.ts"
+    "compile": "deno compile -o c14n-tester --allow-net --allow-read --allow-write main.ts",
+    "docs": "deno doc --html --name=\"rdfjs-c14n tester\" --private --no-remote --output=./docs ./main.ts ./lib/batch.ts ./lib/earl.ts ./lib/rdfn3.ts ./lib/types.ts ./lib/utils.ts"
   },
   "imports": {
     "commander":             "npm:commander",

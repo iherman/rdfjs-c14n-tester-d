@@ -6,8 +6,9 @@
  */
 
 
-import * as rdf    from 'rdf-js';
 import { BNodeId } from 'rdfjs-c14n';
+import * as rdf    from 'rdf-js';
+
 
 export type Json = Record<string, unknown> ;
 
@@ -67,7 +68,7 @@ export enum TestTypes {
 
 /**
  * These are the fields in the manifest. Most of the fields are not used (at the moment) by 
- * this tester, but I are defined here to make the JSON->Object conversion simple. 
+ * this tester, but are defined here to make the JSON->Object conversion simple. 
  */
 export interface TestEntry {
     /** 

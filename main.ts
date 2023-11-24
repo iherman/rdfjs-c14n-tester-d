@@ -14,7 +14,7 @@ import * as process                         from 'node:process';
 
 
 /**
- * Main entry point.
+ * Main entry point to start the testing process.
  * 
  * ```
  * Usage: main [number] [options]

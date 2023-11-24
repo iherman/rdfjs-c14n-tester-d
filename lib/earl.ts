@@ -10,6 +10,12 @@ import { promises as fs }              from 'node:fs';
 
 const today = new Date();
 
+/**
+ * Return a Turtle fragment, following the EARL vocabulary, for a specific test.
+ * 
+ * @param result 
+ * @returns 
+ */
 const createEarlEntry = (result: TestResult): string => {
     return `
 [ 
@@ -26,6 +32,13 @@ const createEarlEntry = (result: TestResult): string => {
 ] .`
 }
 
+/**
+ * Get the `package.json` file from the `rfdjs-c14n` github repository (to extract implementation metadata),
+ * and read the preamble part of the EARL response (stored as a Turtle file with patterns). The preamble
+ * is finalized with the metadata extracted from the `package.json` file.
+ * 
+ * @returns 
+ */
 const getPreamble = async () : Promise<string> => {
     const project_info: Json = await fetchJson(Constants.PACKAGE_FILE);
     // const preamble = await fs.readFile(Constants.EARL_PREAMBLE,"utf-8");
