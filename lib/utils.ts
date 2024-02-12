@@ -7,10 +7,9 @@
  */
 
 import { Graph, Constants, TestEntry, TestResult, TestTypes, Json, IDMapping } from './types';
-import * as rdfn3                                                              from './rdfn3';
-
 import { RDFC10, BNodeId }                                                     from 'rdfjs-c14n';
-import * as rdf                                                                from 'rdf-js';
+import * as rdfn3                                                              from './rdfn3';
+import * as rdf                                                                from '@rdfjs/types';
 
 
 /**
@@ -80,7 +79,7 @@ export async function getTestList(manifest_name: string): Promise<TestEntry[]> {
 async function timeoutTest(test: TestEntry, canonicalizer: RDFC10): Promise<TestResult> {
     const quads = await fetchText(`${Constants.TEST_DIR}${test.action}`);
 
-    const input_graph: Graph = rdfn3.getQuads(quads);
+    const input_graph: Graph = await rdfn3.getQuads(quads);
 
     try {
         await canonicalizer.c14n(input_graph);
@@ -179,11 +178,11 @@ async function mapTest(test: TestEntry, canonicalizer: RDFC10): Promise<TestResu
                 }
             }
     
-            graph.forEach((quad: rdf.Quad): void => {
+            for (const quad of graph) {
                 addBnode(quad.subject);
                 addBnode(quad.object);
                 addBnode(quad.graph);
-            });
+            };
             return bnode_ids
         }
 
@@ -203,7 +202,7 @@ async function mapTest(test: TestEntry, canonicalizer: RDFC10): Promise<TestResu
     // Get the test and the expected result from the test entry;
     const { quads, expected_mapping} = await getTestPair(test);
 
-    const input_graph: Graph = rdfn3.getQuads(quads);
+    const input_graph: Graph = await rdfn3.getQuads(quads);
     const c14n_result        = await canonicalizer.c14n(input_graph);
     const c14n_mapping       = c14n_result.issued_identifier_map;
 
@@ -290,8 +289,8 @@ async function evalTest(test: TestEntry, canonicalizer: RDFC10): Promise<TestRes
     const { input, expected } = await getTestPair(test);
 
     // Get the three graphs in 'real' graph including the canonicalized one.
-    const input_graph: Graph    = rdfn3.getQuads(input);
-    const expected_graph: Graph = rdfn3.getQuads(expected);
+    const input_graph: Graph    = await rdfn3.getQuads(input);
+    const expected_graph: Graph = await rdfn3.getQuads(expected);
     const c14n_result           = await canonicalizer.c14n(input_graph);
     const c14n_graph: Graph     = c14n_result.canonicalized_dataset as Graph;
 

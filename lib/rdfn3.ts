@@ -6,11 +6,12 @@
  * @packageDocumentation
  */
 
-import { Graph } from './types';
 
-import * as n3    from 'n3';
-import * as rdf   from 'rdf-js';
-import { nquads } from '@tpluscode/rdf-string';
+import * as n3                   from 'n3';
+import * as rdf                  from '@rdfjs/types';
+import { Graph }                 from './types'; 
+import { promisifyEventEmitter } from "event-emitter-promisify";
+
 
 /**
  * Convert the graph into ordered NQuads, more exactly into an array of individual NQuad statements.
@@ -19,9 +20,10 @@ import { nquads } from '@tpluscode/rdf-string';
  * @returns 
  */
 export function graphToOrderedNquads(quads: Graph): string[] {
+    const n3Writer = new n3.Writer();
     const quadToNquad = (quad: rdf.Quad): string => {
-        const retval = nquads`${quad}`.toString();
-        return retval.endsWith('  .') ? retval.replace(/  .$/, ' .') : retval;    
+        const retval = n3Writer.quadToString(quad.subject,quad.predicate,quad.object,quad.graph);
+        return retval.endsWith('  .') ? retval.replace(/  .$/, ' .') : retval;
     }
 
     const retval: string[] = [];
@@ -39,11 +41,15 @@ export function graphToOrderedNquads(quads: Graph): string[] {
  * @param trig - TriG content
  * @returns 
  */
-export function getQuads(trig: string): Graph {    
-    const parser = new n3.Parser({blankNodePrefix: ''});
-    const quads: rdf.Quad[] = parser.parse(trig);
-    return new Set<rdf.Quad>(quads);
-}
+export async function getQuads(trig: string): Promise<Graph> {    
+    const store             = new n3.Store();
+    const parser            = new n3.StreamParser({ blankNodePrefix: '' });
+    const storeEventHandler = store.import(parser);
 
+    parser.write(trig);
+    parser.end();
+    await promisifyEventEmitter(storeEventHandler);
+    return store
+}
 
 

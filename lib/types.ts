@@ -6,8 +6,8 @@
  */
 
 
+import * as rdf    from '@rdfjs/types';
 import { BNodeId } from 'rdfjs-c14n';
-import * as rdf    from 'rdf-js';
 
 
 export type Json = Record<string, unknown> ;
@@ -118,4 +118,4 @@ export interface TestResult {
  * 
  * This is the representation sent to the canonicalizer algorithm, as well as the returned format thereof.
  */
-export type Graph = Set<rdf.Quad>;
+export type Graph = Iterable<rdf.Quad>;

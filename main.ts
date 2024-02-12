@@ -6,10 +6,9 @@
 import * as utils                           from './lib/utils';
 import { TestEntry, TestResult, Constants } from './lib/types';
 import { createEarlReport }                 from './lib/earl';
-import { batchPromises }                    from './lib/batch';
-
 import { RDFC10, LogLevels, Logger }        from 'rdfjs-c14n';
 import { Command }                          from 'commander';
+import { batchPromises }                    from './lib/batch';
 import * as process                         from 'node:process';
 
 
